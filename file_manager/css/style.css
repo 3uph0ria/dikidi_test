@@ -1,0 +1,50 @@
+:root {
+    --color-default: #00bc8c;
+}
+
+.image-card {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.image-card .img-thumbnail {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border: 1px solid var(--color-default);
+    border-radius: 13px ;
+}
+
+.image-card .caption {
+    margin-top: 5px;
+    font-size: 0.9em;
+}
+
+.caption p {
+    word-break: break-all;
+    white-space: normal;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+::-webkit-scrollbar-button {
+    background: #18191e;
+}
+
+::-webkit-scrollbar-track {
+    background: #12151c;
+}
+
+::-webkit-scrollbar-track-piece {
+    background: #1b1b1b;
+    box-shadow: 0 2px 18px 2px rgba(18, 21, 28, .5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-default);
+    box-shadow: 0 2px 18px 2px rgba(18, 21, 28, .5);
+    border: var(--color-default);
+    border-radius: 5px;
+}

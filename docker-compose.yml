@@ -1,0 +1,30 @@
+services:
+  web:
+    image: php:7.4-apache
+    container_name: php_app
+    volumes:
+      - ./file_manager:/var/www/html/file_manager
+      - ./auth:/var/www/html/auth
+    ports:
+      - "80:80"
+  mysql:
+    image: mysql:5.7
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - ./db/db.sql:/docker-entrypoint-initdb.d/db.sql
+    ports:
+      - "3306:3306"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      - PMA_HOST=mysql
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
